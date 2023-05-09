@@ -27,11 +27,11 @@ def xywh2xyxy_np(xywh):
     #  Start of your code  #
     ########################
     xyxy = xywh.copy()
-    xyxy[:, 0] = xywh[:, 0] - xywh[:, 2] / 2
-    xyxy[:, 3] = xywh[:, 0] + xywh[:, 2] / 2
+    xyxy[:, 0] = np.floor(xywh[:, 0] - xywh[:, 2] / 2)
+    xyxy[:, 2] = np.floor(xywh[:, 0] + xywh[:, 2] / 2)
 
-    xyxy[:, 1] = xywh[:, 1] - xywh[:, 3] / 2
-    xyxy[:, 2] = xywh[:, 1] + xywh[:, 3] / 2
+    xyxy[:, 1] = np.floor(xywh[:, 1] - xywh[:, 3] / 2)
+    xyxy[:, 3] = np.floor(xywh[:, 1] + xywh[:, 3] / 2)
     ########################
     #   End of your code   #
     ########################
